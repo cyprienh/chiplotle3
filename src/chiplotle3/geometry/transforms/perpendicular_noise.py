@@ -1,0 +1,47 @@
+from __future__ import division
+from builtins import zip
+from past.utils import old_div
+from chiplotle3.geometry.core.group import Group
+from chiplotle3.geometry.core.path import Path
+from chiplotle3.geometry.core.coordinatearray import CoordinateArray
+from chiplotle3.tools.mathtools.difference import difference
+from chiplotle3.geometry.transforms.transformvisitor import TransformVisitor
+import random
+
+def perpendicular_noise(shape, value):
+   '''Distort shape by adding noise perpendiculary to the path.
+   This is an in-place destructive transformation; no new shapes are created.
+
+   - `shape` is the shape to be noisified.
+   - `value` must be a scalar defining the range of the noise 
+      for displacement.
+   '''
+   def perpnoise(coords, value):
+      result = [ ]
+      d_coords = difference(coords)
+      for coord, d_coord in zip(coords[:-1], d_coords):
+         wiggle = random.randrange(-value, value)
+         perp = ~d_coord 
+         xy = coord + old_div(perp, perp.magnitude) * wiggle         
+         result.append(xy)
+      return CoordinateArray(result)
+
+   t = TransformVisitor(perpnoise)
+   t.visit(shape, value)
+
+      
+      
+   
+## RUN DEMO CODE
+if __name__ == "__main__":
+   from chiplotle3.geometry.shapes.circle import circle
+   from chiplotle3.geometry.core.coordinate import Coordinate
+   from chiplotle3.tools import io
+   c1 = circle(1000, 200)
+   c2 = circle(800, 200)
+   c2 += Coordinate(2000, 2000)
+   perpendicular_noise(c1, 360)
+   perpendicular_noise(c2, 60)
+   g = Group([c1, c2])
+   io.view(g)
+
