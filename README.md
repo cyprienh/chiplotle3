@@ -13,3 +13,6 @@ Some information depending on the OS you install this library on:
 
 Find all there is to know about Chiplotle at:
 http://music.columbia.edu/cmc/chiplotle
+
+The code for this version of Chiplotle is available at:
+https://github.com/cyprienh/chiplotle3
