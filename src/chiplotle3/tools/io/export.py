@@ -30,7 +30,7 @@ def export(expr, filename, fmt = 'eps'):
                         stderr = subprocess.PIPE)
    stdout, stderr = p.communicate( )
 
-   if 'not found' in stderr:
+   if 'not found' in stderr.decode("utf-8"):
       print(_hp2xxError())
    
    return imgfile
