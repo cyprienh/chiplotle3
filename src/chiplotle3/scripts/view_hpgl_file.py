@@ -11,10 +11,14 @@ def view_hpgl(file):
    
 
 
-if __name__ == '__main__':
+def main():
    if len(sys.argv) < 2:
       print('Must give HPGL file to view.\nExample: $ view_hpgl myfile.hpgl')
       sys.exit(2)
    file = sys.argv[1]
 
    view_hpgl(file) 
+
+
+if __name__ == '__main__':
+   main()
