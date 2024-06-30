@@ -1,23 +1,22 @@
 from chiplotle3.core.cfg.cfg import __version__
-import os
+from chiplotle3 import *
 
-def _run_chiplotle( ):
-   '''The function runs Python, imports Chiplotle and initializes 
-   a plotter.
-   '''
-   python_code = [ ]
-   python_code.append("print(' ')")
-   python_code.append("print('  +-----------------------+')")
-   python_code.append("print('  |   Chiplotle! v.%s  |')" % __version__)
-   python_code.append("print('  +-----------------------+')")
-   python_code.append("print(' ')")
-   python_code.append("import sys")
-   python_code.append("sys.ps1 = 'chiplotle> '")
-   python_code.append("del sys")
-   python_code.append("from chiplotle3 import *")
-   python_code.append("plts = instantiate_plotters( )")
-   python_code.append("plotter = plts[0]")
+def main():
+    import code
+    import sys
 
-   ##                                 '\n' does now work on Windowz!
-   os.system('''python -i -c "%s"''' % ';'.join(python_code))
+    plts = instantiate_plotters()
+    plotter = plts[0]
 
+    banner = f"""
+    +-----------------------+
+    |   Chiplotle! v{__version__}  |
+    +-----------------------+
+    """
+
+    sys.ps1 = "chiplotle3>"
+
+    code.interact(banner=banner, local=globals(), exitmsg="Exiting Chiplotle3, goodbye!")
+
+if __name__ == "__main__":
+    main()

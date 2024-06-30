@@ -12,7 +12,19 @@ Some information depending on the OS you install this library on:
 - On MacOS using M1 processor, you might need to reinstall Numpy for the library to work, to do so `pip uninstall numpy` and `pip install numpy`.
 
 Find all there is to know about Chiplotle at:
-http://music.columbia.edu/cmc/chiplotle
+http://sites.music.columbia.edu/cmc/chiplotle/
+
+More information at:
+https://chiplotle.readthedocs.io/
 
 The code for this version of Chiplotle is available at:
 https://github.com/cyprienh/chiplotle3
+
+## Installation
+If you only want to use the command `chiplotle3` it is recommended to install using `pipx`:
+```bash
+pipx install chiplotle3
+```
+
+## TODO
+- When using the chiplotle3 command, would be nice if plotter instanciation prints happened after the banner

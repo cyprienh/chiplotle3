@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 import os
-from chiplotle3.core.cfg._run_chiplotle_virtual import _run_chiplotle_virtual
+from chiplotle3.core.cfg._run_chiplotle_virtual import main
 
-_run_chiplotle_virtual( )
+main( )
