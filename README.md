@@ -28,3 +28,4 @@ pipx install chiplotle3
 
 ## TODO
 - When using the chiplotle3 command, would be nice if plotter instanciation prints happened after the banner
+- Automatically update pip when pushing to GitHub
