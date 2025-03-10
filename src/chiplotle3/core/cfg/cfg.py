@@ -1,6 +1,6 @@
 import os
 
-__version__ = '0.4.4'
+__version__ = '0.4.5'
 
 home_path = os.environ.get('HOME') or os.environ.get('HOMEPATH')
 
